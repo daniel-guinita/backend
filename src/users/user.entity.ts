@@ -1,17 +1,18 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+/* eslint-disable prettier/prettier */
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity()
+@Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
-  user_id?: number;
-
+  id!: number; 
+  
   @Column()
   username!: string;
 
   @Column()
   password!: string;
 
-  @Column({ unique: true })
+  @Column()
   email!: string;
 
   @Column()
@@ -26,9 +27,10 @@ export class User {
   @Column()
   role!: string;
 
-  @CreateDateColumn()
-  created_at?: Date;
+  @Column()
+  school_id!: string;
 
-  @UpdateDateColumn()
-  updated_at?: Date;
+  @Column({ type: "text", nullable: true })
+  profileImage!: string;
+
 }
